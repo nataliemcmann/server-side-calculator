@@ -26,8 +26,8 @@ let arithmeticResults = [
 ];
 
 //POST route
-app.post('/arithmeticResults', (req, res) => {
-    console.log('post/arithmeticResults');
+app.post('/newArithmetic', (req, res) => {
+    console.log('post/newArithmetic');
     arithmeticResults.push(req.body);
     res.sendStatus(201); //tells client the object was pushed to the array
   })
