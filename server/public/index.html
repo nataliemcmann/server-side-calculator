@@ -10,15 +10,23 @@
     <title>Server Side Calculator</title>
 </head>
 <body>
-    <header>Calculator</header>
+    <header>
+        <h1>Calculator</h1>
+    </header>
     <main>
-        <section class="userInputs">
+        <section id="userInputs">
         <input id="numberOne" type="number" placeholder="">
         <button> + </button>
         <input id="numberTwo" type="number" placeholder="">
         <button> = </button>
         <button> Clear </button>
         </section>
+        <section id="calculatorResult">
+            <!-- render result here -->
+        </section>
+        <ul id="calculatorHistory">
+            <!-- render list of previous calculations -->
+        </ul>
     </main>
 </body>
 </html>
