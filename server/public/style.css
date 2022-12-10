@@ -4,36 +4,57 @@
 
 body {
     text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-image: url('./canoe.png');
+    background-size: 350px 350px;
+    background-position: center;
+    background-color: #607196;
 }
 
-input {
-    line-height: 32px;
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2em;
 }
 
 button {
     font-size: 2em;
     text-align: center;
+    border-radius: 12px;
 }
 
-#calculatorButtons {
+#calculatorDisplay {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     align-content: center;
-    padding-left: 35%;
-    padding-right: 35%;
+    padding: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #9c917d;
 }
 
 #userInputs {
     display: flex;
     flex-direction: row;
     order: 1;
+    margin: 2%;
 }
 
 #inputField {
     display: flex;
     justify-content: center;
     width: 100%;
+    line-height: 32px;
+    font-size: 2em;
+    background-color: #e9e9e4;
 }
 
 #rowOne {
@@ -45,19 +66,15 @@ button {
 #clearInputs {
     display: flex;
     justify-content: flex-start;
-    flex-grow: 2;
-}
-
-#makeNegative {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    width: 75%;
+    background-color: #2e460e;
+    color: #f1f0f7; 
 }
 
 #division {
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    width: 25%;
 }
 
 #rowTwo {
@@ -70,7 +87,9 @@ button {
 .r2Buttons {
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    width: 25%;
+    background-color: #7a96b2;
+    color: #f1f0f7;
 }
 
 #rowThree {
@@ -82,7 +101,9 @@ button {
 .r3Buttons {
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    width: 25%;
+    background-color: #7a96b2;
+    color: #f1f0f7;
 }
 
 #rowFour {
@@ -94,29 +115,44 @@ button {
 .r4Buttons {
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    width: 25%;
+    background-color: #7a96b2;
+    color: #f1f0f7;
 }
 
 #rowFive {
     display: flex;
     flex-direction: row;
     order: 6;
+
+}
+
+.r5Buttons {
+    background-color: #7a96b2;
+    color: #f1f0f7;
 }
 
 #zero {
     display: flex;
     justify-content: flex-start;
-    flex-grow: 2;
+    width: 50%;
 }
 
 #dot {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    width: 25%;
 }
 
 #equal {
     display: flex;
     justify-content: flex-end;
-    flex-grow: 1;
+    width: 25%;
+    background-color: #2e460e;
+    color: #f1f0f7; 
+}
+
+.operator {
+    background-color: #2e460e;
+    color: #f1f0f7; 
 }
