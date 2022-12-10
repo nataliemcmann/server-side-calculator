@@ -2,33 +2,133 @@
     outline: red solid 2px;
 }
 
+body {
+    text-align: center;
+}
+
+input {
+    line-height: 32px;
+}
+
+button {
+    font-size: 2em;
+    text-align: center;
+}
+
 #calculatorButtons {
     display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-content: center;
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+#userInputs {
+    display: flex;
+    flex-direction: row;
+    order: 1;
+}
+
+#numberOne {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 2;
+}
+
+#chosenOperator {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#numberTwo {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 2;
 }
 
 #rowOne {
     display: flex;
+    flex-direction: row;
+    order: 2;
 }
 
 #clearInputs {
     display: flex;
     justify-content: flex-start;
+    flex-grow: 2;
 }
 
 #makeNegative {
     display: flex;
     justify-content: center;
+    flex-grow: 1;
 }
 
 #division {
     display: flex;
     justify-content: flex-end;
+    flex-grow: 1;
 }
 
 #rowTwo {
-    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    order: 3;
+    flex-grow: 1;
+}
+
+.r2Buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 
 #rowThree {
+    display: flex;
+    flex-direction: row;
+    order: 4;
+}
+
+.r3Buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+#rowFour {
+    display: flex;
+    flex-direction: row;
+    order: 5;
+}
+
+.r4Buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+#rowFive {
+    display: flex;
+    flex-direction: row;
+    order: 6;
+}
+
+#zero {
+    display: flex;
     justify-content: flex-start;
+    flex-grow: 2;
+}
+
+#dot {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#equal {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
