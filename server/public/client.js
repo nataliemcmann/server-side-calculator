@@ -8,15 +8,39 @@ $(document).ready(onReady);
 //code to run when DOM is initially rendered
 function onReady(){
     console.log('jQuery is ready');
-    $('#addition').on('click', handleAddition);
+    $('#addition').on('click', handleAdd);
+    $('#subtraction').on('click', handleSubtract);
+    $('#multiplication').on('click', handleMultiply);
+    $('#division').on('click', handleDivide);
     $('#equal').on('click', handleDataSubmit);
     $('#clearInputs').on('click', handleClearInputs);
 }
 
 //assigns the variable operation to addition operator value as a string
-function handleAddition(){
+function handleAdd(){
     console.log('addition!');
     operation = '+';
+    console.log(operation);
+}
+
+//assigns operation to subtract operator
+function handleSubtract(){
+    console.log('subtract!');
+    operation = '-';
+    console.log(operation);
+}
+
+//assigns operation to multiply operator
+function handleMultiply(){
+    console.log('multiply!');
+    operation = '*';
+    console.log(operation);
+}
+
+//assigns operation to division operator
+function handleDivide(){
+    console.log('divide!');
+    operation = '/';
     console.log(operation);
 }
 
@@ -49,8 +73,8 @@ function handleClearInputs(){
 function postCalculation(calculation) {
     $.ajax({
     url: '/newArithmetic',
-      method: 'post', // send the data to the server
-      data: calculation
+    method: 'post', // send the data to the server
+    data: calculation
     }).then((res) => { //puts the server message in the browers console
     console.log(res);
     })
