@@ -16,34 +16,6 @@ function onReady(){
     $('#clearInputs').on('click', handleClearInputs);
 }
 
-//assigns the variable operation to addition operator value as a string
-function handleAdd(){
-    console.log('addition!');
-    operation = '+';
-    console.log(operation);
-}
-
-//assigns operation to subtract operator
-function handleSubtract(){
-    console.log('subtract!');
-    operation = '-';
-    console.log(operation);
-}
-
-//assigns operation to multiply operator
-function handleMultiply(){
-    console.log('multiply!');
-    operation = '*';
-    console.log(operation);
-}
-
-//assigns operation to division operator
-function handleDivide(){
-    console.log('divide!');
-    operation = '/';
-    console.log(operation);
-}
-
 //upon button click, turns userInputs into an object
 //posts object to server and renders the DOM
 function handleDataSubmit(){
@@ -105,3 +77,32 @@ function renderResults(){
         // console.log(res);
     })
 }  
+
+//BELOW ARE ALL OPERATOR FUNCTIONS
+//assigns the variable operation to addition operator value as a string
+function handleAdd(){
+    console.log('addition!');
+    operation = '+';
+    console.log(operation);
+}
+
+//assigns operation to subtract operator
+function handleSubtract(){
+    console.log('subtract!');
+    operation = '-';
+    console.log(operation);
+}
+
+//assigns operation to multiply operator
+function handleMultiply(){
+    console.log('multiply!');
+    operation = '*';
+    console.log(operation);
+}
+
+//assigns operation to division operator
+function handleDivide(){
+    console.log('divide!');
+    operation = '/';
+    console.log(operation);
+}
