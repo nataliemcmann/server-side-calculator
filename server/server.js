@@ -13,27 +13,37 @@ app.use(express.static('server/public'));
 //start the server listening
 app.listen(PORT, () => {
     console.log ('Server is running on port', PORT)
-  })
+})
 
 //array to store math operations and solutions
-let arithmeticResults = [
-    {
-        valOne: 1,
-        valTwo: 4,
-        operator: '+',
-        // result: finalNumber //I want my function to add this property to the array
-    }
-];
+let arithmeticResults = [];
+
 
 //POST route
 app.post('/newArithmetic', (req, res) => {
     console.log('post/newArithmetic');
     arithmeticResults.push(req.body);
+    runOperation(arithmeticResults);
+    console.log(arithmeticResults);
     res.sendStatus(201); //tells client the object was pushed to the array
-  })
+})
 
 //GET route
 app.get('/arithmeticResults', (req, res) => {
     console.log('get/arithmeticResults');
     res.send(arithmeticResults); //send array
-  })
+})
+
+// function to determine what type of arithmetic to perform
+function runOperation(arithmeticResults){
+    let currentCalc = arithmeticResults[arithmeticResults.length-1];
+    if (currentCalc.operator === '+'){
+        currentCalc.result = addNumbers(currentCalc);
+        console.log(currentCalc);
+    }
+}
+
+// function to do addition
+function addNumbers(lastCalcInArray){
+    return Number(lastCalcInArray.valOne) + Number(lastCalcInArray.valTwo);
+}

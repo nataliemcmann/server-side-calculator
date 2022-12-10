@@ -20,6 +20,8 @@ function handleAddition(){
     console.log(operation);
 }
 
+//upon button click, turns userInputs into an object
+//posts object to server and renders the DOM
 function handleDataSubmit(){
     console.log('submit data!');
     let valOne = $('#numberOne').val();
@@ -29,6 +31,9 @@ function handleDataSubmit(){
         valTwo,
         operator: operation
     };
+    console.log(calculation.valOne);
+    console.log(calculation.valTwo);
+    console.log(calculation.operator);
     postCalculation(calculation);
     renderResults();
 }
@@ -43,19 +48,36 @@ function handleClearInputs(){
 //post function
 function postCalculation(calculation) {
     $.ajax({
-      url: '/newArithmetic',
+    url: '/newArithmetic',
       method: 'post', // send the data to the server
       data: calculation
     }).then((res) => { //puts the server message in the browers console
-      console.log(res);
+    console.log(res);
     })
-  }
+}
 
+//gets the new calc results and calc history
 function renderResults(){
     $.ajax({
         url: '/arithmeticResults',
         method: 'GET'
     }).then((res) => {
-        console.log(res);
+        //empty result section
+        $('#calculatorResult').empty();
+        //render current calc result to DOM
+        $('#calculatorResult').append(`
+        <h2>${res[res.length-1].result}</h2>
+        `);
+        //empty history section
+        $('#calculatorHistory').empty();
+        //render history to the DOM
+        for (let prop of res) {
+        $('#calculatorHistory').append(`
+        <li>
+        ${prop.valOne} ${prop.operator} ${prop.valTwo} = ${prop.result}
+        </li>
+        `)
+        }
+        // console.log(res);
     })
 }  
