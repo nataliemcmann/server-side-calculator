@@ -1,6 +1,12 @@
 //global variables
-let operation; //store userInput operator here
-let calcsToPerform = []; //dummy array 
+let operation = ''; //store userInput operator here
+let numOne = ''; //store userInput for id="numberOne"
+let numTwo = ''; //store userInput for id="numberOne"
+
+//make string to put in inputfield
+function makeInputString() {
+    return numOne + ' ' + operation + ' ' + numTwo
+}
 
 //jquery ready
 $(document).ready(onReady);
@@ -8,28 +14,38 @@ $(document).ready(onReady);
 //code to run when DOM is initially rendered
 function onReady(){
     console.log('jQuery is ready');
+    //click handlers for numbers
+    $('#dot').on('click', printDecimal);
+    $('#zero').on('click', printZero);
+    $('#one').on('click', printOne);
+
+    $('#seven').on('click', printSeven);
+    //click handlers for operations
     $('#addition').on('click', handleAdd);
     $('#subtraction').on('click', handleSubtract);
     $('#multiplication').on('click', handleMultiply);
     $('#division').on('click', handleDivide);
+    //data submit click handler
     $('#equal').on('click', handleDataSubmit);
+    //clear input handler
     $('#clearInputs').on('click', handleClearInputs);
 }
 
 //upon button click, turns userInputs into an object
 //posts object to server and renders the DOM
 function handleDataSubmit(){
-    console.log('submit data!');
-    let valOne = $('#numberOne').val();
-    let valTwo = $('#numberTwo').val();
+    // console.log('submit data!');
+    let inputToSplit = $('#inputField').val();
+    let inputArray = inputToSplit.split(' ')
+    console.log(inputArray);
+    let valOne = inputArray[0];
+    let valTwo = inputArray[2];
     let calculation = {
         valOne,
         valTwo,
-        operator: operation
+        operator: inputArray[1]
     };
-    console.log(calculation.valOne);
-    console.log(calculation.valTwo);
-    console.log(calculation.operator);
+    console.log(calculation);
     postCalculation(calculation);
     renderResults();
 }
@@ -39,6 +55,10 @@ function handleClearInputs(){
     // console.log('clear!');
     $('#numberOne').val('');
     $('#numberTwo').val('');
+    $('#chosenOperator').val('');
+    numOne = '';
+    numTwo = '';
+    operation;
 }
 
 //post function
@@ -81,28 +101,101 @@ function renderResults(){
 //BELOW ARE ALL OPERATOR FUNCTIONS
 //assigns the variable operation to addition operator value as a string
 function handleAdd(){
-    console.log('addition!');
+    // console.log('addition!');
     operation = '+';
-    console.log(operation);
+    $('#chosenOperator').val(operation);
+    // console.log(operation);
+    let inputString = makeInputString();
+    $('#inputField').val(inputString);
 }
 
 //assigns operation to subtract operator
 function handleSubtract(){
-    console.log('subtract!');
+    // console.log('subtract!');
     operation = '-';
-    console.log(operation);
+    $('#chosenOperator').val(operation);
+    // console.log(operation);
+    let inputString = makeInputString();
+    $('#inputField').val(inputString);
 }
 
 //assigns operation to multiply operator
 function handleMultiply(){
-    console.log('multiply!');
+    // console.log('multiply!');
     operation = '*';
-    console.log(operation);
+    $('#chosenOperator').val(operation);
+    // console.log(operation);
+    let inputString = makeInputString();
+    $('#inputField').val(inputString);
 }
 
 //assigns operation to division operator
 function handleDivide(){
-    console.log('divide!');
+    // console.log('divide!');
     operation = '/';
-    console.log(operation);
+    $('#chosenOperator').val(operation);
+    // console.log(operation);
+    let inputString = makeInputString();
+    $('#inputField').val(inputString);
+}
+
+//BELOW ARE ALL PRINT NUMBER FUNCTIONS
+//decimal
+function printDecimal(){
+    let text = $('#inputField').val();
+    if (text.includes('+') ||
+        text.includes('-') ||
+        text.includes('*') ||
+        text.includes('/')){
+            numTwo += '.';
+        } else {
+            numOne += '.';
+        }
+        let inputString = makeInputString();
+        $('#inputField').val(inputString);
+}
+
+//zero
+function printZero(){
+    let text = $('#inputField').val();
+    if (text.includes('+') ||
+        text.includes('-') ||
+        text.includes('*') ||
+        text.includes('/')){
+            numTwo += '0';
+        } else {
+            numOne += '0';
+        }
+        let inputString = makeInputString();
+        $('#inputField').val(inputString);
+}
+
+//one
+function printOne(){
+    let text = $('#inputField').val();
+    if (text.includes('+') ||
+        text.includes('-') ||
+        text.includes('*') ||
+        text.includes('/')){
+            numTwo += '1';
+        } else {
+            numOne += '1';
+        }
+        let inputString = makeInputString();
+        $('#inputField').val(inputString);
+}
+
+//seven
+function printSeven(){
+    let text = $('#inputField').val();
+    if (text.includes('+') ||
+        text.includes('-') ||
+        text.includes('*') ||
+        text.includes('/')){
+            numTwo += '7';
+        } else {
+            numOne += '7';
+        }
+        let inputString = makeInputString();
+        $('#inputField').val(inputString);
 }

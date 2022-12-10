@@ -30,22 +30,10 @@ button {
     order: 1;
 }
 
-#numberOne {
-    display: flex;
-    justify-content: flex-start;
-    flex-grow: 2;
-}
-
-#chosenOperator {
+#inputField {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
-}
-
-#numberTwo {
-    display: flex;
-    justify-content: flex-end;
-    flex-grow: 2;
+    width: 100%;
 }
 
 #rowOne {
