@@ -1,0 +1,34 @@
+* {
+    outline: red solid 2px;
+}
+
+#calculatorButtons {
+    display: flex;
+}
+
+#rowOne {
+    display: flex;
+}
+
+#clearInputs {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#makeNegative {
+    display: flex;
+    justify-content: center;
+}
+
+#division {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#rowTwo {
+    justify-content: flex-start;
+}
+
+#rowThree {
+    justify-content: flex-start;
+}
