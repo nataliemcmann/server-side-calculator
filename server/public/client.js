@@ -9,46 +9,17 @@ function onReady(){
     console.log('jQuery is ready');
     //click handlers for numbers
     $('#calculatorDisplay').on('click', '.string', handleStringPrint);
-    // $('#dot').on('click', printDecimal);
-    // $('#zero').on('click', printZero);
-    // $('#one').on('click', printOne);
-    // $('#two').on('click', printTwo);
-    // $('#three').on('click', printThree);
-    // $('#four').on('click', printFour);
-    // $('#five').on('click', printFive);
-    // $('#six').on('click', printSix);
-    // $('#seven').on('click', printSeven);
-    // $('#eight').on('click', printEight);
-    // $('#nine').on('click', printNine);
-    //click handlers for operations
-    // $('#addition').on('click', handleAdd);
-    // $('#subtraction').on('click', handleSubtract);
-    // $('#multiplication').on('click', handleMultiply);
-    // $('#division').on('click', handleDivide);
     //data submit click handler
     $('#equal').on('click', handleDataSubmit);
-    //clear input handler
-    // $('#clearInputs').on('click', handleClearInputs);
+
 }
 
 //upon button click, turns userInputs into an object
 //posts object to server and renders the DOM
 function handleDataSubmit(){
-    // console.log('submit data!');
-    let inputToSplit = $('#inputField').val();
-    let inputArray = inputToSplit.split(' ')
-    // console.log(inputArray);
-    let valOne = inputArray[0];
-    let valTwo = inputArray[2];
-    let calculation = {
-        valOne,
-        valTwo,
-        operator: inputArray[1]
-    };
-    // console.log(calculation);
-    postCalculation(calculation);
-    renderResults();
-}
+    // console.log('is button working');
+    validateInput();
+    }
 
 //post function
 function postCalculation(calculation) {
@@ -85,4 +56,56 @@ function renderResults(){
         }
         // console.log(res);
     })
+}  
+
+//checks if input includes and operator and a second number
+function validateInput(){
+    //grab input field value
+    let inputToSplit = $('#inputField').val();
+    let inputArray = inputToSplit.split(' ');
+    inputArray = inputArray.filter(Boolean);
+    //loop to check if operator is included in input
+    let operatorTrue = false;
+    let indexOfOperator = 0;
+    if (inputArray.includes('+') ||
+        inputArray.includes('-') ||
+        inputArray.includes('*') ||
+        inputArray.includes('/') ) {
+        operatorTrue = true;
+        for (let i = 0; i < inputArray.length; i++){
+            if (inputArray[i] === '+' ||
+                inputArray[i] === '-' ||
+                inputArray[i] === '*' ||
+                inputArray[i] === '/') {
+                indexOfOperator = i;
+            }
+        } 
+    } else {
+        console.log('missing operator');
+        $('#calculatorResult').empty();
+        //render error message to DOM
+        $('#calculatorResult').append(`
+        <h2> Missing Operator </h2>
+        `);
+    }
+    //conditional to check if input is complete
+    if (indexOfOperator === inputArray.length - 1) {
+        console.log('all nums not included');
+        $('#calculatorResult').empty();
+        //render error message to DOM
+        $('#calculatorResult').append(`
+        <h2> Missing Operator or Second Number </h2>
+        `);
+    } else {
+        console.log('good to go')
+        let valOne = inputArray[0];
+        let valTwo = inputArray[2];
+        let calculation = {
+            valOne,
+            valTwo,
+            operator: inputArray[1]
+        };
+        postCalculation(calculation);
+        renderResults();
+    }
 }  
