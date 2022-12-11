@@ -42,7 +42,7 @@ function renderResults(){
         $('#calculatorResult').empty();
         //render current calc result to DOM
         $('#calculatorResult').append(`
-        <h2> Answer: ${res[res.length-1].result}</h2>
+        <h2> ${res[res.length-1].result}</h2>
         `);
         //empty history section
         $('#calculatorHistory').empty();
