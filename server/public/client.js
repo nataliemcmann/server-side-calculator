@@ -1,14 +1,4 @@
-//global variables
-let operation = ''; //store userInput operator here
-let numOne = ''; //store userInput for id="numberOne"
-let numTwo = ''; //store userInput for id="numberOne"
-
-// //make string to put in inputfield
-// function makeInputString() {
-//     return numOne + ' ' + operation + ' ' + numTwo
-// }
-
-//import necessary function
+//import necessary functions
 import handleStringPrint from './client-modules/numberFunctions.js';
 
 //jquery ready
@@ -18,7 +8,7 @@ $(document).ready(onReady);
 function onReady(){
     console.log('jQuery is ready');
     //click handlers for numbers
-    $('#calculatorDisplay').on('click', 'button', handleStringPrint);
+    $('#calculatorDisplay').on('click', '.string', handleStringPrint);
     // $('#dot').on('click', printDecimal);
     // $('#zero').on('click', printZero);
     // $('#one').on('click', printOne);
@@ -38,7 +28,7 @@ function onReady(){
     //data submit click handler
     $('#equal').on('click', handleDataSubmit);
     //clear input handler
-    $('#clearInputs').on('click', handleClearInputs);
+    // $('#clearInputs').on('click', handleClearInputs);
 }
 
 //upon button click, turns userInputs into an object
@@ -58,15 +48,6 @@ function handleDataSubmit(){
     // console.log(calculation);
     postCalculation(calculation);
     renderResults();
-}
-
-//clears input fields upon button click
-function handleClearInputs(){
-    // console.log('clear!');
-    $('#inputField').val('');
-    numOne = '';
-    numTwo = '';
-    operation = '';
 }
 
 //post function

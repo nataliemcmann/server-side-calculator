@@ -8,6 +8,13 @@ function makeInputString() {
     return numOne + ' ' + operation + ' ' + numTwo
 }
 
+//function to clear string once made
+function resetString(){
+    numOne = '';
+    numTwo = '';
+    operation = '';
+}
+
 //BELOW ARE ALL PRINT NUMBER FUNCTIONS
 //decimal
 function printDecimal(){
@@ -20,8 +27,6 @@ function printDecimal(){
         } else {
             numOne += '.';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //zero
@@ -35,8 +40,6 @@ function printZero(){
         } else {
             numOne += '0';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //one
@@ -50,8 +53,6 @@ function printOne(){
         } else {
             numOne += '1';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //two
@@ -65,8 +66,6 @@ function printTwo(){
         } else {
             numOne += '2';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //three
@@ -80,8 +79,6 @@ function printThree(){
         } else {
             numOne += '3';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //four
@@ -95,8 +92,6 @@ function printFour(){
         } else {
             numOne += '4';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //five
@@ -110,8 +105,6 @@ function printFive(){
         } else {
             numOne += '5';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //six
@@ -125,8 +118,6 @@ function printSix(){
         } else {
             numOne += '6';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //seven
@@ -140,8 +131,6 @@ function printSeven(){
         } else {
             numOne += '7';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //seven
@@ -155,8 +144,6 @@ function printEight(){
         } else {
             numOne += '8';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //nine
@@ -170,8 +157,6 @@ function printNine(){
         } else {
             numOne += '9';
         }
-        let inputString = makeInputString();
-        $('#inputField').val(inputString);
 }
 
 //BELOW ARE ALL OPERATOR FUNCTIONS
@@ -181,8 +166,6 @@ function handleAdd(){
     operation = '+';
     $('#chosenOperator').val(operation);
     // console.log(operation);
-    let inputString = makeInputString();
-    $('#inputField').val(inputString);
 }
 
 //assigns operation to subtract operator
@@ -191,8 +174,6 @@ function handleSubtract(){
     operation = '-';
     $('#chosenOperator').val(operation);
     // console.log(operation);
-    let inputString = makeInputString();
-    $('#inputField').val(inputString);
 }
 
 //assigns operation to multiply operator
@@ -201,8 +182,6 @@ function handleMultiply(){
     operation = '*';
     $('#chosenOperator').val(operation);
     // console.log(operation);
-    let inputString = makeInputString();
-    $('#inputField').val(inputString);
 }
 
 //assigns operation to division operator
@@ -211,8 +190,13 @@ function handleDivide(){
     operation = '/';
     $('#chosenOperator').val(operation);
     // console.log(operation);
-    let inputString = makeInputString();
-    $('#inputField').val(inputString);
+}
+
+//clears input fields upon button click
+function handleClearInputs(){
+    // console.log('clear!');
+    resetString();
+    $('#inputField').val('');
 }
 
 //function to concatenate string
@@ -249,5 +233,10 @@ export default function handleStringPrint(){
         handleMultiply();
     } else if (buttonPressed === 'division'){
         handleDivide();
+    }
+    let inputString = makeInputString();
+    $('#inputField').val(inputString);
+    if (buttonPressed === 'clearInputs'){
+        handleClearInputs();
     }
 }
